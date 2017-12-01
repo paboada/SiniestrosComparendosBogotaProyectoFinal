@@ -1,0 +1,54 @@
+html, body, * {
+				font-family: Arial, sans-serif;
+				text-align: center;
+				font-size: 14px 40%;
+			}
+
+
+			.bar.positive {
+			  fill: darkred;
+			}
+
+			.bar.negative {
+			  fill: steelblue;
+			}
+
+			g.infowin2015 {
+				fill: grey;
+			}
+
+			g.infowin2015 text,
+			.axis text {
+			  font: 11px sans-serif;
+			  fill:grey;
+			}
+                        g.infowin2016 {
+				fill: grey;
+			}
+
+			g.infowin2016 text,
+			.axis text {
+			  font: 11px sans-serif;
+			  fill:grey;
+			}
+                        g.infowin2017 {
+				fill: grey;
+			}
+
+			g.infowin2017 text,
+			.axis text {
+			  font: 11px sans-serif;
+			  fill:grey;
+			}
+
+			.axis path,
+			.axis line {
+			  fill: none;
+			  stroke: #000;
+			  shape-rendering: crispEdges;
+			}
+
+			path.domain {
+				stroke:none;
+			}
+
