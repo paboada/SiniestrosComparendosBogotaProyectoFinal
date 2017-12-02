@@ -7,7 +7,7 @@
 function dibujar_bars_dom(){
     
     var Localidad = getParameterByName('Localidad');
-    console.log(Localidad);
+    //console.log(Localidad);
     
     var archivo2015 = Localidad.concat("2015",".csv");
     var archivo2016 = Localidad.concat("2016",".csv");
@@ -33,7 +33,7 @@ function dibujar_bars_dom(){
 function dibujar_lines_dom(){
     
     var Localidad = getParameterByName('Localidad');
-    console.log(Localidad);    
+    //console.log(Localidad);    
    var archivo2015 = Localidad.concat("2015");
    var archivo2016 = Localidad.concat("2016");
    var archivo2017 = Localidad.concat("2017");    
@@ -58,7 +58,7 @@ function dibujar_bar_comparendos_dom(){
     //console.log(Meses);   
  
    var archivo2015 = Localidad.concat(Meses,"2015");
-     console.log(archivo2015);   
+     //console.log(archivo2015);   
    var archivo2016 = Localidad.concat(Meses,"2016");
    var archivo2017 = Localidad.concat(Meses,"2017");   
    

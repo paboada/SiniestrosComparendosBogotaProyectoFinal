@@ -26,7 +26,7 @@ var yAxis = d3.svg.axis()
 
  var signo = "#";
  var seccion_compa = signo.concat(seccion);
-console.log("Seccion para comparendos:" + seccion_compa);
+  //console.log("Seccion para comparendos:" + seccion_compa);
 
 var contenedor = d3.select(seccion_compa);
 var svg = contenedor.append("svg")
@@ -38,6 +38,8 @@ var svg = contenedor.append("svg")
 var ruta = "data/bar_comp/";
     var archivo_procesar= ruta.concat(archivo,".csv");
     
+console.log("Cargado en comparendos:" + archivo_procesar);    
+
 d3.csv(archivo_procesar, type, function(error, data) {
   x.domain(d3.extent(data, function(d) { return d.value; })).nice();
   y.domain(data.map(function(d) { return d.name; }));

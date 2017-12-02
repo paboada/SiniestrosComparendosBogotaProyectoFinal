@@ -30,7 +30,7 @@ var yAxis = d3.svg.axis()
     
     var ruta = "data/bars/";
     var archivo_procesar= ruta.concat(archivo);
-    
+ console.log("Cargado en deltas siniestros:" + archivo_procesar);   
 d3.csv(archivo_procesar, type, function(error, data) {
     x.domain(data.map(function(d) {
         return d.Year;
@@ -41,7 +41,7 @@ d3.csv(archivo_procesar, type, function(error, data) {
 
     var signo = "#"
     var seccion_svg = signo.concat(seccion);
-    console.log("Seccion para barcharts:" + seccion_svg);
+    //console.log("Seccion para barcharts:" + seccion_svg);
     
     var svg = d3.select(seccion_svg).append("svg")
         .attr("width", width + margin.left + margin.right)
