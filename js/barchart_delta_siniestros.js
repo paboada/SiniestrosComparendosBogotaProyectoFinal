@@ -5,8 +5,8 @@ var margin = {
         bottom: 20,
         left: 30
     },
-    width = 300 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 500 - margin.left - margin.right,
+    height = 250 - margin.top - margin.bottom;
 
 var y = d3.scale.linear()
     .range([height, 0]);
@@ -28,7 +28,7 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left");
     
-    var ruta = "data/";
+    var ruta = "data/bars/";
     var archivo_procesar= ruta.concat(archivo);
     
 d3.csv(archivo_procesar, type, function(error, data) {
