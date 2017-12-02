@@ -10,10 +10,11 @@
         <script src="js/clear.js" charset="utf-8"></script>
         <script src="js/main.js" charset="utf-8"></script>
         <script src="js/linechart_siniestros.js" charset="utf-8"></script>
+        <script src="js/barchart_comparendos_tipo.js" charset="utf-8"></script>
         <link rel="STYLESHEET" type="text/css" href="css/css_barcharts_delta_siniestros.css"> 
         
     </head>
-    <body>
+    <body >
         <div id = "lista_localidades">     
            <form name="form_index" action="index.html">      
                 <select name="Localidad">
@@ -21,6 +22,9 @@
                    <option value="BarriosUnidos">BarriosUnidos</option>
                    <option value="Bosa">Bosa</option>
                 </select>     
+               <select name="Meses">
+                   <option value="Ene-Feb">Ene-Feb</option> 
+                </select>  
                 <p class="BtnIniciar">
                     <input type="submit" value="Consultar" name="btn_iniciar"/>
                 </p>
@@ -41,11 +45,21 @@
             <span id="ano2016">
             </span>
             <span id="ano2017">
-            </span>
-            <script>     
-               dibujar_bars_dom();   
-               dibujar_lines_dom();
-            </script>        
+            </span>      
         </div>
+        <div id = "bars_cambio_comparendos">
+            <span id="cambio2015">
+            </span>  
+             <span id="cambio2016">
+            </span> 
+            <span id="cambio2017">
+            </span>
+        </div>
+            <script>     
+                //se llaman las funciones que estan en main.js, desde alli, se invocan las que construllen cada viz
+              dibujar_bars_dom();   
+              dibujar_lines_dom();
+              dibujar_bar_comparendos_dom();
+            </script>  
     </body>
 </html>

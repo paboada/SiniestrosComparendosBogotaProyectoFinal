@@ -5,7 +5,7 @@ var margin = {
         bottom: 20,
         left: 30
     },
-    width = 500 - margin.left - margin.right,
+    width = 450 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
 
 var y = d3.scale.linear()
@@ -41,7 +41,8 @@ d3.csv(archivo_procesar, type, function(error, data) {
 
     var signo = "#"
     var seccion_svg = signo.concat(seccion);
-
+    console.log("Seccion para barcharts:" + seccion_svg);
+    
     var svg = d3.select(seccion_svg).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)

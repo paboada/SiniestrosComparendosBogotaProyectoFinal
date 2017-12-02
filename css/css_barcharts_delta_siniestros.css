@@ -82,3 +82,13 @@ div.tooltip {
     border-radius: 8px;			
     pointer-events: none;			
 }
+
+
+
+.bar--positive {
+  fill: steelblue;
+}
+
+.bar--negative {
+  fill: darkorange;
+}

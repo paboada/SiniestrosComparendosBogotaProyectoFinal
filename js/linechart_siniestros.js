@@ -5,7 +5,7 @@ var margin = {  top: 10,
                 right: 10,
                 bottom: 20,
                 left: 30},
-    width = 500 - margin.left - margin.right,
+    width = 450 - margin.left - margin.right,
     height = 250 - margin.top - margin.bottom;
 
 // Parse the date / time
@@ -38,6 +38,7 @@ var div = d3.select("body").append("div")
 var signo ="#";
 var seccion_dibujar = signo.concat(seccion);
 console.log(seccion_dibujar);
+console.log("Seccion para lines:" + seccion_dibujar);
 
 var svg = d3.select(seccion_dibujar)
     .append("svg")
