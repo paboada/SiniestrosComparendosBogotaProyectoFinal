@@ -22,7 +22,7 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .orient("left")
     .tickSize(0)
-    .tickPadding(6);
+    .tickPadding(1);
 
  var signo = "#";
  var seccion_compa = signo.concat(seccion);

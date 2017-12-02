@@ -52,17 +52,22 @@ function dibujar_lines_dom(){
 function dibujar_bar_comparendos_dom(){
     
    var Localidad = getParameterByName('Localidad');
-    console.log(Localidad);    
-   var archivo2015 = Localidad.concat("2015");
-   var archivo2016 = Localidad.concat("2016");
-   var archivo2017 = Localidad.concat("2017");   
+    //console.log(Localidad);   
+    
+    var Meses = getParameterByName('Meses');
+    //console.log(Meses);   
+ 
+   var archivo2015 = Localidad.concat(Meses,"2015");
+     console.log(archivo2015);   
+   var archivo2016 = Localidad.concat(Meses,"2016");
+   var archivo2017 = Localidad.concat(Meses,"2017");   
    
     var seccion = "cambio2015";
     dibujar_barchart_comparendos_tipo(seccion,archivo2015);   
     var seccion = "cambio2016";
     dibujar_barchart_comparendos_tipo(seccion,archivo2016);   
     var seccion = "cambio2017";
-    dibujar_barchart_comparendos_tipo(seccion,archivo2016);   
+    dibujar_barchart_comparendos_tipo(seccion,archivo2017);   
 
 }
 
