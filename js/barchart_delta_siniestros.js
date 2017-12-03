@@ -1,3 +1,5 @@
+/* global seccion_infowin */
+
 function dibujar_barchart_siniestros(seccion, seccion_infowin, info_yr,grados, archivo){
 var margin = {
         top: 10,
@@ -53,6 +55,9 @@ d3.csv(archivo_procesar, type, function(error, data) {
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
+        .attr("id",function(d){
+            return d.Year;
+        })
         .attr("class", function(d) {
 
             if (d.Celsius < 0){
@@ -62,6 +67,16 @@ d3.csv(archivo_procesar, type, function(error, data) {
             }
 
         })
+        .attr("fill", function(d) {
+
+            if (d.Celsius < 0){
+                return "darkred";
+            } else {
+                return "steelblue";
+            }
+
+        })
+        .attr("opacity", "0.7")
         .attr("data-yr", function(d){
             return d.Year;
         })
@@ -97,6 +112,9 @@ d3.csv(archivo_procesar, type, function(error, data) {
             d3.select(degrree)
                 .text(d.Celsius + " Siniestros");
         });
+        
+        
+        
 
     svg.append("g")
         .attr("class", "y axis")

@@ -49,14 +49,17 @@ function dibujar_lines_dom(){
     dibujar_line_chart(seccion,archivo); 
 }
 
-function dibujar_bar_comparendos_dom(){
+function dibujar_bar_comparendos_dom(MesesMouse){
     
+   clean_dom_barchart_comparendos();
    var Localidad = getParameterByName('Localidad');
     //console.log(Localidad);   
     
-    var Meses = getParameterByName('Meses');
+    //var Meses = getParameterByName('Meses');
     //console.log(Meses);   
+    var Meses = MesesMouse;
  
+   console.log("Se enviara archivo a diburar comparendos: " + Localidad.concat(Meses,"2015"));  
    var archivo2015 = Localidad.concat(Meses,"2015");
      //console.log(archivo2015);   
    var archivo2016 = Localidad.concat(Meses,"2016");

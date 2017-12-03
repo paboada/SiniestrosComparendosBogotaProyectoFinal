@@ -1,3 +1,5 @@
+/* global d3 */
+
 function dibujar_line_chart(seccion,archivo){
 
 // Set the dimensions of the canvas / graph
@@ -57,6 +59,7 @@ d3.csv(arc_proc, function(error, data) {
     data.forEach(function(d) {
         d.date = parseDate(d.date);
         d.close = +d.close;
+        //console.log(d.meses);
     });
 
     // Scale the range of the data
@@ -71,7 +74,12 @@ d3.csv(arc_proc, function(error, data) {
     // Add the scatterplot
     svg.selectAll("dot")	
         .data(data)			
-    .enter().append("circle")								
+    .enter().append("circle")	
+        .attr("id", function(d) {
+                    //console.log(d.meses);
+                    return d.meses; 
+                }
+         )
         .attr("r", 4)		
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { return y(d.close); })		
@@ -82,6 +90,28 @@ d3.csv(arc_proc, function(error, data) {
             div	.html(formatTime(d.date) + "<br/>"  + d.close)	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
+        
+           var signo = "#";
+            //console.log(signo.concat(d.meses));
+           d3.select("body")
+              .selectAll(signo.concat(d.meses))
+              .attr("opacity", "1")
+              .attr("r",7)
+      
+       .on("mouseout", function(d) {
+                var signo = "#";
+            //console.log(signo.concat(d.meses));
+            d3.select("body")
+              .selectAll(signo.concat(d.meses))
+              .attr("opacity", "0.7")
+              .attr("r",4)
+              
+         })
+              ;              
+           
+          
+          dibujar_bar_comparendos_dom(d.meses);   
+          
             })					
         .on("mouseout", function(d) {		
             div.transition()		

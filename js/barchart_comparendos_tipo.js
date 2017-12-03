@@ -1,3 +1,5 @@
+/* global d3 */
+
 function dibujar_barchart_comparendos_tipo(seccion,archivo){
     
 
@@ -32,6 +34,7 @@ var contenedor = d3.select(seccion_compa);
 var svg = contenedor.append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
+    .attr("class","svg_comparendos")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
@@ -44,6 +47,7 @@ d3.csv(archivo_procesar, type, function(error, data) {
   x.domain(d3.extent(data, function(d) { return d.value; })).nice();
   y.domain(data.map(function(d) { return d.name; }));
 
+/* original
   svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
@@ -52,7 +56,39 @@ d3.csv(archivo_procesar, type, function(error, data) {
       .attr("y", function(d) { return y(d.name); })
       .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
       .attr("height", y.rangeBand());
+*/
 
+//Pablo Andres Baoda : modificada la creacion anterior para poder seleccionar los comparendos de la misma clase en todos los años y resaltarlos
+svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("id", function(d) { 
+          var clase = d.name;
+          var crear_clase = clase.replace("'", "").replace("'", "");
+          //console.log("va a crear id" + crear_clase);
+          return crear_clase;          
+      })
+      .attr("class", function(d) { return "bar bar--" + (d.value < 0 ? "negative" : "positive"); })
+      .attr("x", function(d) { return x(Math.min(0, d.value)); })
+      .attr("fill","steelblue")
+      .attr("y", function(d) { return y(d.name); })
+      .attr("width", function(d) { return Math.abs(x(d.value) - x(0)); })
+      .attr("height", y.rangeBand())
+      .on("mouseover",function(d) {
+          var signo = "#";
+           //console.log("mov mouse barra: " + signo.concat(d.name.replace("'", "").replace("'", "")));
+           d3.selectAll("body")
+              .selectAll(signo.concat(d.name.replace("'", "").replace("'", "")))
+              .attr("fill","red")
+              ;})
+        .on("mouseout", function(d) {
+                d3.selectAll("body")
+                      .selectAll(signo.concat(d.name.replace("'", "").replace("'", "")))
+                      .attr("fill","steelblue");
+         })
+    ;
+      
+      
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
