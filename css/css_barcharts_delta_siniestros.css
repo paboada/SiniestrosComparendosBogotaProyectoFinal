@@ -1,28 +1,28 @@
 html, body, * {
 				font-family: Arial, sans-serif;
 				text-align: center;
-				font-size: 14px 40%;
+				font-size: 15px 40%;
 			}
 
 
 			
 			g.infowin2015 {
-				fill: grey;
+				fill: black ;
 			}
 
 			g.infowin2015 text,
 			.axis text {
 			  font: 11px sans-serif;
-			  fill:grey;
+			  fill:black;
 			}
                         g.infowin2016 {
-				fill: grey;
+				fill: black;
 			}
 
 			g.infowin2016 text,
 			.axis text {
 			  font: 11px sans-serif;
-			  fill:grey;
+			  fill:black;
 			}
                         g.infowin2017 {
 				fill: grey;
@@ -31,7 +31,7 @@ html, body, * {
 			g.infowin2017 text,
 			.axis text {
 			  font: 11px sans-serif;
-			  fill:grey;
+			  fill:black;
 			}
 
 			.axis path,
@@ -69,9 +69,14 @@ div.tooltip {
     width: 60px;					
     height: 28px;					
     padding: 2px;				
-    font: 12px sans-serif;		
+    font: 15px sans-serif;		
     background: lightsteelblue;	
     border: 0px;		
     border-radius: 8px;			
     pointer-events: none;			
+}
+
+#a2015{
+    width: 60px;					
+    height: 28px;
 }

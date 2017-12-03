@@ -105,3 +105,11 @@ function type(d) {
   return d;
 }
 }
+
+
+function datos_bar_delta(archivo){
+    
+    
+    
+    
+}

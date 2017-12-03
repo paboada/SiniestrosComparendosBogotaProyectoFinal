@@ -31,9 +31,9 @@ var valueline = d3.svg.line()
     .y(function(d) { return y(d.close); });
 
 // Define the div for the tooltip
-var div = d3.select("body").append("div")	
+/*var div = d3.select("body").append("div")	
     .attr("class", "tooltip")				
-    .style("opacity", 0);
+    .style("opacity", 0);*/
 
 // Adds the svg canvas
 
@@ -44,6 +44,7 @@ console.log("Seccion para lines:" + seccion_dibujar);
 
 var svg = d3.select(seccion_dibujar)
     .append("svg")
+    .attr("id", "id_linechart")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -61,6 +62,8 @@ d3.csv(arc_proc, function(error, data) {
         d.close = +d.close;
         //console.log(d.meses);
     });
+    
+   
 
     // Scale the range of the data
     x.domain(d3.extent(data, function(d) { return d.date; }));
@@ -83,28 +86,41 @@ d3.csv(arc_proc, function(error, data) {
         .attr("r", 4)		
         .attr("cx", function(d) { return x(d.date); })		 
         .attr("cy", function(d) { return y(d.close); })		
-        .on("mouseover", function(d) {		
+        .on("mouseover", function(d) {	
+            
+            var signo = "#";
+    
+            var div = d3.selectAll("body").append("div")	
+                    .attr("class", "tooltip")
+                    .style("opacity", 0);
+            
             div.transition()		
                 .duration(200)		
-                .style("opacity", .9);		
-            div	.html(formatTime(d.date) + "<br/>"  + d.close)	
+                .style("opacity", .9)
+            ;		
+            div.html(formatTime(d.date) + "<br/>"  + d.close)	
                 .style("left", (d3.event.pageX) + "px")		
                 .style("top", (d3.event.pageY - 28) + "px");	
         
-           var signo = "#";
+           
             //console.log(signo.concat(d.meses));
+           
+    
            d3.select("body")
               .selectAll(signo.concat(d.meses))
               .attr("opacity", "1")
-              .attr("r",7)
+              .attr("r",9)
       
        .on("mouseout", function(d) {
                 var signo = "#";
             //console.log(signo.concat(d.meses));
             d3.select("body")
               .selectAll(signo.concat(d.meses))
-              .attr("opacity", "0.7")
+              .attr("opacity", "0.5")
               .attr("r",4)
+      
+      var div = d3.select("body").selectAll(".tooltip");
+            div.remove();
               
          })
               ;              

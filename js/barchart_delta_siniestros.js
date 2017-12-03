@@ -72,11 +72,11 @@ d3.csv(archivo_procesar, type, function(error, data) {
             if (d.Celsius < 0){
                 return "darkred";
             } else {
-                return "steelblue";
+                return "darkblue";
             }
 
         })
-        .attr("opacity", "0.7")
+        .attr("opacity", "0.5")
         .attr("data-yr", function(d){
             return d.Year;
         })
@@ -103,7 +103,6 @@ d3.csv(archivo_procesar, type, function(error, data) {
             return Math.abs(y(d.Celsius) - y(0));
         })
         .on("mouseover", function(d){
-            // alert("Year: " + d.Year + ": " + d.Celsius + " Celsius");
             var signo = "#"
             var yr = signo.concat(info_yr);
             var degrree = signo.concat(grados)
@@ -111,12 +110,10 @@ d3.csv(archivo_procesar, type, function(error, data) {
                 .text("Mes: " + d.Year);
             d3.select(degrree)
                 .text(d.Celsius + " Siniestros");
-        });
+        })
         
-        
-        
-
-    svg.append("g")
+    ;    
+     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis);
 
@@ -157,4 +154,15 @@ function type(d) {
     d.Celsius = +d.Celsius;
     return d;
 }
+}
+
+
+function mostrar_et (){
+    var signo = "#"
+            var yr = signo.concat(info_yr);
+            var degrree = signo.concat(grados)
+            d3.select(yr)
+                .text("Mes: " + d.Year);
+            d3.select(degrree)
+                .text(d.Celsius + " Siniestros");
 }
