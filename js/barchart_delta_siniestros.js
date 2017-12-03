@@ -93,9 +93,9 @@ d3.csv(archivo_procesar, type, function(error, data) {
             var yr = signo.concat(info_yr);
             var degrree = signo.concat(grados)
             d3.select(yr)
-                .text("Year: " + d.Year);
+                .text("Mes: " + d.Year);
             d3.select(degrree)
-                .text(d.Celsius);
+                .text(d.Celsius + " Siniestros");
         });
 
     svg.append("g")
@@ -122,7 +122,7 @@ d3.csv(archivo_procesar, type, function(error, data) {
 
     svg.append("g")
         .attr("class", seccion_infowin)
-        .attr("transform", "translate(50, 5)")
+        .attr("transform", "translate(70, 5)")
         .append("text")
         .attr("id", info_yr);
 

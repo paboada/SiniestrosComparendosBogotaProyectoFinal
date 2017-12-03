@@ -71,6 +71,8 @@ function dibujar_bar_comparendos_dom(){
 
 }
 
+
+
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
